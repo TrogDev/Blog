@@ -100,13 +100,16 @@ public class PostController : ControllerBase
     [Role(Role.Admin)]
     public async Task<IActionResult> SetTags([FromForm] PostSetTagsRequestData data)
     {
-        var command = new PostSetTagsCommand()
-        {
-            Id = data.Id,
-            TagIds = data.TagIds
-        };
+        var command = new PostSetTagsCommand() { Id = data.Id, TagIds = data.TagIds };
 
-        await postService.SetTags(command);
+        try
+        {
+            await postService.SetTags(command);
+        }
+        catch (EntityNotFoundException)
+        {
+            return NotFound();
+        }
 
         return NoContent();
     }
