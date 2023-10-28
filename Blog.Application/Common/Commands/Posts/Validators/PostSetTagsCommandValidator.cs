@@ -21,7 +21,7 @@ public class PostSetTagsCommandValidator : AbstractValidator<PostSetTagsCommand>
         CancellationToken cancellationToken
     )
     {
-        return await context.Categories.Where(e => tagIds.Contains(e.Id)).CountAsync()
+        return await context.Tags.Where(e => tagIds.Contains(e.Id)).CountAsync()
             == tagIds.Count();
     }
 }
