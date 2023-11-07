@@ -25,7 +25,7 @@
 ## Использование
 - Склонируйте репозиторий
 ```sh
-$ git clone https://github.com/Troggdorrr/Blog/
+$ git clone https://github.com/TrogDev/Blog/
 ```
 - Заполните [настройки](Blog.Web/appsettings.json)
 
